@@ -8,11 +8,10 @@ class CreateBooks < ActiveRecord::Migration[5.0]
     create_table :books do |t|
       t.string :title, null: false
       t.string :author, null: false
-      t.string :type, null: false
-      t.integer :grade_level, null: false
-      t.string :description, null: false
+      t.string :grade_level, null: false
+      t.text :description, null: false
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
