@@ -3,7 +3,7 @@
 # initializing books controler
 
 # :nodoc:
-class BooksController < ApplicationController
+class BooksController < OpenReadController
   def index
     @books = Book.all
 

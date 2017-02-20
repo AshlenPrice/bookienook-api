@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# does this require additional validation? would any of these fields be required?
+# does this require additional validation? would any of these fields be reqrd?
 # eventually as a stretch goal I want to be able to do a ful CRUD.
 
 class CreateBooks < ActiveRecord::Migration[5.0]
