@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class ReviewsController < ApplicationController
+class ReviewsController < ProtectedController
   before_action :set_review, only: [:show, :update, :destroy]
 
   # GET /reviews
@@ -11,15 +11,15 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/1
   def show
-    render json: @review
+    render json: Review.find(params[:id])
   end
 
-  # POST /reviews
+  # POST /reviews - need to add user to this. Only a user can create
   def create
-    @review = Review.new(review_params)
+    @review = current_user.reviews.build(review_params)
 
     if @review.save
-      render json: @review, status: :created, location: @review
+      render json: @review, status: :created
     else
       render json: @review.errors, status: :unprocessable_entity
     end
@@ -37,17 +37,18 @@ class ReviewsController < ApplicationController
   # DELETE /reviews/1
   def destroy
     @review.destroy
-  end
 
-  private
+    head :no_content
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_review
-    @review = Review.find(params[:id])
+    @review = current_user.reviews.find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.
   def review_params
-    params.require(:review).permit(:review_content)
+    params.require(:review).permit(:review_content, :user_id, :book_id)
   end
+  private :set_review, :review_params
 end
