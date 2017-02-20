@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
-  resources :reviews
+  resources :reviews, except: [:new, :edit]
   # resources :examples, except: [:new, :edit]
   get '/books', to: 'books#index'
   resources :books, only: [:index, :show]
