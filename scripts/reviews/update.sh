@@ -9,7 +9,7 @@ curl "${API}${URL_PATH}" \
   --header "Authorization: Token token=$TOKEN" \
   --data '{
     "review": {
-      "review_content": "'"${REVIEW_CONTENT}"'",
+      "review_content": "'"${REVIEW_CONTENT}"'"
     }
   }'
 

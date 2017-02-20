@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 class ReviewsController < OpenReadController
-  before_action :set_review, only: [:show, :update, :destroy]
+  before_action :set_review, only: [:update, :destroy]
 
   # GET /reviews
   def index
@@ -16,7 +16,6 @@ class ReviewsController < OpenReadController
 
   # POST /reviews - need to add user to this. Only a user can create
   def create
-
     @review = current_user.reviews.build(review_params)
 
     if @review.save
