@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class ReviewsController < ProtectedController
+class ReviewsController < OpenReadController
   before_action :set_review, only: [:show, :update, :destroy]
 
   # GET /reviews
@@ -16,6 +16,7 @@ class ReviewsController < ProtectedController
 
   # POST /reviews - need to add user to this. Only a user can create
   def create
+
     @review = current_user.reviews.build(review_params)
 
     if @review.save
@@ -48,7 +49,8 @@ class ReviewsController < ProtectedController
 
   # Only allow a trusted parameter "white list" through.
   def review_params
-    params.require(:review).permit(:review_content, :user_id, :book_id)
+    print params
+    params.require(:review).permit(:review_content, :book_id)
   end
   private :set_review, :review_params
 end

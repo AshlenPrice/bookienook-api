@@ -3,5 +3,6 @@
 # :nodoc:
 
 class BookSerializer < ActiveModel::Serializer
-  attributes :id, :title, :author, :grade_level, :description
+  attributes :id, :title, :author, :grade_level, :description, :reviews
+
 end

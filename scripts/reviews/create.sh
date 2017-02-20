@@ -5,13 +5,13 @@ curl "${API}${URL_PATH}" \
   --request POST \
   --header "Content-Type: application/json" \
   --header "Authorization: Token token=$TOKEN"\
-
   --data '{
     "review": {
       "review_content": "'"${REVIEW_CONTENT}"'",
-      "user_id": "'"${USER_ID}"'",
       "book_id": "'"${BOOK_ID}"'"
         }
   }'
 
 echo
+
+# "user_id": "'"${USER_ID}"'",

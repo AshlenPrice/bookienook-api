@@ -20,7 +20,7 @@ Book.create([
                 author: 'Louis Sachar',
                 grade_level: '4th',
                 description: 'One of several hilarious books about wacky Wayside
-                              School.' },
+                            School.' },
 
               { title: 'The Very Hungry Caterpillar',
                 author: 'Eric Carle',
