@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170221023826) do
+ActiveRecord::Schema.define(version: 20170220035623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,23 +32,12 @@ ActiveRecord::Schema.define(version: 20170221023826) do
     t.index ["user_id"], name: "index_examples_on_user_id", using: :btree
   end
 
-  create_table "readers", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.date     "born_on"
-    t.string   "grade"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_readers_on_user_id", using: :btree
-  end
-
   create_table "reviews", force: :cascade do |t|
-    t.text     "review_content"
+    t.text     "review_content", null: false
+    t.integer  "user_id",        null: false
+    t.integer  "book_id",        null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.integer  "user_id"
-    t.integer  "book_id"
     t.index ["book_id"], name: "index_reviews_on_book_id", using: :btree
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
@@ -64,7 +53,6 @@ ActiveRecord::Schema.define(version: 20170221023826) do
   end
 
   add_foreign_key "examples", "users"
-  add_foreign_key "readers", "users"
   add_foreign_key "reviews", "books"
   add_foreign_key "reviews", "users"
 end

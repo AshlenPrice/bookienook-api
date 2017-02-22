@@ -19,7 +19,6 @@ User.transaction do
 end
 end
 
-Review.create(review_content: 'this book was really awesome', book: books.first)
 #
 # Book.transaction do
 #   %w().each do |name|
