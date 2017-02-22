@@ -48,7 +48,6 @@ class ReviewsController < OpenReadController
 
   # Only allow a trusted parameter "white list" through.
   def review_params
-    print params
     params.require(:review).permit(:review_content, :book_id)
   end
   private :set_review, :review_params
