@@ -38,3 +38,12 @@ Book.create([
                 description: 'A silly tongue-twisting story, about a cat in a
                               hat.' }
             ])
+
+Review.create([
+      {review_content: 'I believe this was a really funny book! ',
+  book_id: 2},
+  {review_content: 'This was a very good book. I would recommend it!',
+  book_id: 3},
+
+
+])
